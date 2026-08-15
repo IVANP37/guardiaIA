@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Light Theme Overrides for Dashboard & Sidebar */
+.theme-light {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Backgrounds */
+.theme-light .bg-\[\#05070A\] { background-color: #f8fafc !important; }
+.theme-light .bg-\[\#080C14\] { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
+.theme-light .bg-slate-900 { background-color: #ffffff !important; border-color: #e2e8f0 !important; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.theme-light .bg-slate-800 { background-color: #f1f5f9 !important; }
+.theme-light .bg-slate-900\/30 { background-color: #f8fafc !important; border-color: #e2e8f0 !important; }
+
+/* Text Colors */
+.theme-light .text-white { color: #0f172a !important; }
+.theme-light .text-slate-100 { color: #0f172a !important; }
+.theme-light .text-slate-200 { color: #1e293b !important; }
+.theme-light .text-slate-300 { color: #334155 !important; }
+.theme-light .text-slate-400 { color: #475569 !important; }
+.theme-light .text-slate-500 { color: #64748b !important; }
+
+/* Borders */
+.theme-light .border-slate-800 { border-color: #e2e8f0 !important; }
+.theme-light .border-slate-700 { border-color: #cbd5e1 !important; }
+
+/* Specific highlights for Sidebar/Dashboard */
+.theme-light .hover\:bg-slate-800\/50:hover { background-color: #f1f5f9 !important; }
+.theme-light .hover\:bg-slate-800:hover { background-color: #f1f5f9 !important; }
+.theme-light .bg-indigo-500\/10 { background-color: #e0e7ff !important; }
+.theme-light .bg-green-500\/10 { background-color: #dcfce3 !important; }
+.theme-light .bg-amber-500\/10 { background-color: #fef3c7 !important; }
+.theme-light .bg-blue-500\/10 { background-color: #dbeafe !important; }
+.theme-light .bg-red-500\/10 { background-color: #fee2e2 !important; }
+
+/* Text Exceptions to not completely blackout everything */
+.theme-light .text-indigo-400 { color: #6366f1 !important; }
+.theme-light .text-green-400 { color: #16a34a !important; }
+.theme-light .text-blue-400 { color: #2563eb !important; }
+.theme-light .text-amber-400 { color: #d97706 !important; }
+.theme-light .text-red-400 { color: #dc2626 !important; }
+.theme-light .bg-\[\#05070A\]\/90 { background-color: rgba(248, 250, 252, 0.9) !important; }
+.theme-light .bg-indigo-600 { background-color: #4f46e5 !important; color: #ffffff !important; }
+.theme-light .bg-indigo-600 .text-white { color: #ffffff !important; }
+.theme-light .hover\:bg-indigo-500:hover { background-color: #6366f1 !important; }
+.theme-light .bg-indigo-900\/10 { background-color: rgba(99, 102, 241, 0.05) !important; }
+.theme-light .bg-indigo-900\/20 { background-color: rgba(99, 102, 241, 0.1) !important; }
+.theme-light .bg-indigo-900\/40 { background-color: rgba(99, 102, 241, 0.15) !important; }
