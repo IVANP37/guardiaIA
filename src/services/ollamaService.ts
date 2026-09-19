@@ -169,16 +169,18 @@ async function callOllamaChatApi(messages: { role: string; content: string }[]):
     },
   };
 
-  const candidateUrls = [
-    // 1. Direct configured URL (e.g. http://127.0.0.1:11434/api/chat)
-    baseUrl ? `${baseUrl}/api/chat` : 'http://127.0.0.1:11434/api/chat',
-    // 2. Vite Dev Server Direct API Proxy
-    '/api/chat',
-    // 3. Vite Dev Server /ollama Proxy
-    '/ollama/api/chat',
-    // 4. Localhost fallback
-    'http://localhost:11434/api/chat',
-  ];
+  const candidateUrls = import.meta.env.PROD
+    ? [
+        baseUrl ? `${baseUrl}/api/chat` : '/api/chat',
+        '/api/chat',
+        '/ollama/api/chat',
+      ]
+    : [
+        baseUrl ? `${baseUrl}/api/chat` : 'http://127.0.0.1:11434/api/chat',
+        '/api/chat',
+        '/ollama/api/chat',
+        'http://localhost:11434/api/chat',
+      ];
 
   let lastError: any = null;
 
