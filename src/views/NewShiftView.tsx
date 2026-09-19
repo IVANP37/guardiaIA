@@ -63,20 +63,31 @@ export function NewShiftView({ onStart }: { onStart: (config: SimulationConfig) 
               <Stethoscope className="w-4 h-4 mr-2" /> Especialidad
             </h3>
             <div className="flex flex-wrap gap-2">
-              {specialties.map(s => (
-                <button
-                  key={s}
-                  onClick={() => setSelectedSpecialty(s)}
-                  className={clsx(
-                    "px-4 py-2 rounded-lg text-sm font-medium transition-all",
-                    selectedSpecialty === s 
-                      ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/20" 
-                      : "bg-slate-900 border border-slate-800 text-slate-400 hover:bg-slate-800 hover:text-slate-200"
-                  )}
-                >
-                  {s}
-                </button>
-              ))}
+              {specialties.map(s => {
+                const isDisabled = s === 'Neumología' || s === 'Gastroenterología' || s === 'Emergencias';
+                return (
+                  <button
+                    key={s}
+                    disabled={isDisabled}
+                    onClick={() => !isDisabled && setSelectedSpecialty(s)}
+                    className={clsx(
+                      "px-4 py-2 rounded-lg text-sm font-medium transition-all relative",
+                      selectedSpecialty === s 
+                        ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/20" 
+                        : isDisabled
+                          ? "bg-slate-950 border border-slate-900 text-slate-600 opacity-40 cursor-not-allowed"
+                          : "bg-slate-900 border border-slate-800 text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                    )}
+                  >
+                    {s}
+                    {isDisabled && (
+                      <span className="absolute -top-1.5 -right-1 text-[8px] bg-slate-800 text-slate-500 px-1 py-0.5 rounded border border-slate-700 uppercase scale-75">
+                        Inactivo
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
 

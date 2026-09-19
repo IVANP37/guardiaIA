@@ -156,7 +156,7 @@ export function DashboardView({ onStartCase }: { onStartCase: (id: string) => vo
                   </div>
                 </div>
                 <p className="text-sm text-slate-400">
-                  Paciente: {c.patient.name}, {c.patient.age} años. Motivo: {c.patient.reasonForConsultation}.
+                  Paciente: {c.patient.name}, {c.patient.age} {c.patient.ageUnit || 'años'}. Motivo: {c.patient.reasonForConsultation}.
                 </p>
                 <div className="mt-4 flex justify-end">
                   <span className="text-sm text-indigo-400 font-medium flex items-center opacity-0 group-hover:opacity-100 transition-opacity">

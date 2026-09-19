@@ -25,7 +25,7 @@ export function ClinicalEnvironmentsView() {
             <div className="relative z-10">
               <h2 className="text-lg font-bold text-white mb-1 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-                AI Environment Studio
+                Estudio de entornos con IA
               </h2>
               <p className="text-sm text-slate-400 mb-6">Genera escenarios hospitalarios y perfiles acústicos mediante IA.</p>
               

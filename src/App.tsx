@@ -9,6 +9,7 @@ import { LoginView } from './views/LoginView';
 import { Sidebar } from './components/Sidebar';
 import { DashboardView } from './views/DashboardView';
 import { NewShiftView } from './views/NewShiftView';
+import { WaitingCasesView } from './views/WaitingCasesView';
 import { SimulatorView } from './views/SimulatorView';
 import { EvaluationView } from './views/EvaluationView';
 import { LibraryView } from './views/LibraryView';
@@ -28,6 +29,7 @@ import clsx from 'clsx';
 
 export default function App() {
   const [view, setView] = useState<AppState>('login');
+  const [shiftConfig, setShiftConfig] = useState<SimulationConfig | null>(null);
   const [activeCaseId, setActiveCaseId] = useState<string | null>(null);
   const [resolvedSimulation, setResolvedSimulation] = useState<ResolvedSimulation | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -45,17 +47,23 @@ export default function App() {
   };
 
   const handleStartCase = (caseId: string) => {
+    const caseObj = libraryCases.find(c => c.id === caseId) || demoCase;
     setActiveCaseId(caseId);
-    setResolvedSimulation(null); // Clear resolved simulation if starting library case
+    setResolvedSimulation(resolveSimulation({
+      specialty: caseObj.specialty,
+      level: 'Residente',
+      difficulty: caseObj.difficulty,
+      mode: 'Caso individual'
+    }, caseObj));
     setView('simulator');
     setIsSidebarOpen(false);
   };
 
   const handleStartNewShift = (config: SimulationConfig) => {
-    const resolved = resolveSimulation(config);
-    setResolvedSimulation(resolved);
+    setShiftConfig(config);
     setActiveCaseId(null);
-    setView('simulator');
+    setResolvedSimulation(null);
+    setView('waiting-cases');
     setIsSidebarOpen(false);
   };
 
@@ -125,6 +133,18 @@ export default function App() {
         <div className="relative z-10 flex-1 h-full">
           {view === 'dashboard' && <DashboardView onStartCase={handleStartCase} />}
           {view === 'new-shift' && <NewShiftView onStart={handleStartNewShift} />}
+          {view === 'waiting-cases' && shiftConfig && (
+            <WaitingCasesView
+              config={shiftConfig}
+              onSelectCase={(caseObj) => {
+                const resolved = resolveSimulation(shiftConfig, caseObj);
+                setResolvedSimulation(resolved);
+                setActiveCaseId(caseObj.id);
+                setView('simulator');
+              }}
+              onBack={() => setView('new-shift')}
+            />
+          )}
           {view === 'library' && <LibraryView onSelectCase={handleStartCase} />}
           {view === 'case-studio' && <CaseStudioView />}
           {view === 'analytics' && <AnalyticsView />}
@@ -137,7 +157,7 @@ export default function App() {
           {view === 'admin-settings' && <SettingsView />}
 
           {/* Fallback for other sidebar items not fully implemented yet */}
-          {!['dashboard', 'new-shift', 'library', 'case-studio', 'analytics', 'knowledge-base', 'actors', 'environments', 'simulations', 'stats', 'admin-users', 'admin-settings'].includes(view) && (
+          {!['dashboard', 'new-shift', 'waiting-cases', 'library', 'case-studio', 'analytics', 'knowledge-base', 'actors', 'environments', 'simulations', 'stats', 'admin-users', 'admin-settings'].includes(view) && (
             <div className="p-8 flex flex-col items-center justify-center h-full text-slate-500">
               <p className="text-xl font-medium text-slate-400 mb-2">Sección en construcción</p>
               <p className="text-sm">Esta vista estará disponible en la próxima versión.</p>

@@ -59,7 +59,7 @@ export function LibraryView({ onSelectCase }: { onSelectCase?: (caseId: string) 
             {/* Card Header Image / Color block */}
             <div className="h-32 bg-slate-800 relative overflow-hidden">
               {c.patient.avatarUrl ? (
-                <img src={c.patient.avatarUrl} alt="Patient reference" className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity mix-blend-luminosity" />
+                <img src={c.patient.avatarUrl} alt="Referencia del paciente" className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity mix-blend-luminosity" />
               ) : (
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900" />
               )}

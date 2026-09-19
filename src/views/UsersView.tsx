@@ -16,7 +16,7 @@ export function UsersView() {
             <Users className="w-6 h-6 text-indigo-400" />
             Gestión de Usuarios
           </h1>
-          <p className="text-sm text-slate-400">Administra instructores, estudiantes y permisos del tenant</p>
+          <p className="text-sm text-slate-400">Administra instructores, estudiantes y permisos de la institución</p>
         </div>
         <div className="flex gap-3">
           <button className="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
@@ -66,9 +66,9 @@ export function UsersView() {
                     </td>
                     <td className="p-4 text-sm text-slate-400">{user.email}</td>
                     <td className="p-4">
-                      {user.role === 'ADMIN' && <span className="text-[10px] px-2 py-1 bg-red-500/10 text-red-400 border border-red-500/20 rounded uppercase font-bold tracking-wider flex items-center gap-1 w-max"><ShieldAlert className="w-3 h-3" /> Admin</span>}
+                      {user.role === 'ADMIN' && <span className="text-[10px] px-2 py-1 bg-red-500/10 text-red-400 border border-red-500/20 rounded uppercase font-bold tracking-wider flex items-center gap-1 w-max"><ShieldAlert className="w-3 h-3" /> Administrador</span>}
                       {user.role === 'INSTRUCTOR' && <span className="text-[10px] px-2 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded uppercase font-bold tracking-wider w-max">Instructor</span>}
-                      {user.role === 'STUDENT' && <span className="text-[10px] px-2 py-1 bg-slate-800 text-slate-300 border border-slate-700 rounded uppercase font-bold tracking-wider w-max">Student</span>}
+                      {user.role === 'STUDENT' && <span className="text-[10px] px-2 py-1 bg-slate-800 text-slate-300 border border-slate-700 rounded uppercase font-bold tracking-wider w-max">Estudiante</span>}
                     </td>
                     <td className="p-4 text-sm text-slate-400">{user.lastActive}</td>
                     <td className="p-4 text-center">

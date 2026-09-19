@@ -22,7 +22,7 @@ export function EvaluationView({ onBack }: { onBack: () => void }) {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12 relative">
         <div className="absolute left-0 top-0">
           <button onClick={onBack} className="text-slate-400 hover:text-white transition-colors text-sm flex items-center">
-            ← Volver al Dashboard
+            ← Volver al panel
           </button>
         </div>
         

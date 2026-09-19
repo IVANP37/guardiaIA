@@ -145,7 +145,7 @@ export function LoginView({ onLogin }: { onLogin: () => void }) {
                   Plataforma de simulación clínica educativa. No apta para diagnóstico ni tratamiento de pacientes reales.
                 </p>
                 <p className="text-[10px] text-slate-500 font-medium">
-                  {mockTenant.name} · Powered by GuardIA
+                  {mockTenant.name} · Desarrollado por GuardIA
                 </p>
               </div>
             </div>

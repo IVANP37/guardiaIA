@@ -9,7 +9,7 @@ export function SettingsView() {
             <Settings className="w-6 h-6 text-indigo-400" />
             Configuración del Sistema
           </h1>
-          <p className="text-sm text-slate-400">Preferencias del Tenant y ajustes del motor de IA</p>
+          <p className="text-sm text-slate-400">Preferencias de la institución y ajustes del motor de IA</p>
         </div>
         <div>
           <button className="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors shadow-lg shadow-indigo-500/20">
@@ -27,7 +27,7 @@ export function SettingsView() {
               <div className="p-2 bg-indigo-500/10 rounded-lg border border-indigo-500/20">
                 <Settings className="w-5 h-5 text-indigo-400" />
               </div>
-              <h2 className="text-lg font-bold text-white">General (Tenant)</h2>
+              <h2 className="text-lg font-bold text-white">General (Institución)</h2>
             </div>
             <div className="p-6 space-y-6">
               <div className="grid grid-cols-2 gap-6">
@@ -36,7 +36,7 @@ export function SettingsView() {
                   <input type="text" defaultValue="Hospital Universitario Virtual" className="w-full bg-[#05070A] border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors" />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">ID del Tenant</label>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">ID de la institución</label>
                   <input type="text" defaultValue="t-1" disabled className="w-full bg-[#05070A]/50 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-500 cursor-not-allowed" />
                 </div>
               </div>
@@ -61,7 +61,7 @@ export function SettingsView() {
             <div className="p-6 space-y-6">
               <div className="flex items-center justify-between p-4 bg-[#05070A] rounded-xl border border-slate-800">
                 <div>
-                  <h3 className="font-bold text-slate-200 text-sm">Generación de Actores Visuales (AI Actor Studio)</h3>
+                  <h3 className="font-bold text-slate-200 text-sm">Generación de actores visuales (estudio de actores)</h3>
                   <p className="text-xs text-slate-400 mt-1">Permitir a los instructores generar nuevos actores virtuales usando IA.</p>
                 </div>
                 <div className="w-12 h-6 bg-indigo-600 rounded-full relative cursor-pointer">

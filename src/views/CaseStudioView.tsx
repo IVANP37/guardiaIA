@@ -7,7 +7,7 @@ export function CaseStudioView() {
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
             <PenTool className="w-6 h-6 text-indigo-400" />
-            Case Studio
+            Estudio de casos
           </h1>
           <p className="text-sm text-slate-400">Creación y gestión de escenarios clínicos con IA</p>
         </div>
@@ -107,29 +107,29 @@ export function CaseStudioView() {
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded bg-slate-900 border border-slate-700 flex items-center justify-center text-xs text-indigo-400 font-bold">Act</div>
                       <div>
-                        <div className="text-[10px] text-slate-500 uppercase">Virtual Actor</div>
-                        <div className="text-xs text-slate-300 font-mono">MALE_60_75_02 <span className="text-slate-500">(Reutilizado)</span></div>
+                        <div className="text-[10px] text-slate-500 uppercase">Actor virtual</div>
+                        <div className="text-xs text-slate-300">Hombre 60-75 años (02) <span className="text-slate-500">(Reutilizado)</span></div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded bg-slate-900 border border-slate-700 flex items-center justify-center text-xs text-emerald-400 font-bold">Env</div>
                       <div>
-                        <div className="text-[10px] text-slate-500 uppercase">Clinical Environment</div>
-                        <div className="text-xs text-slate-300 font-mono">EMERGENCY_BOX_01 <span className="text-slate-500">(Reutilizado)</span></div>
+                        <div className="text-[10px] text-slate-500 uppercase">Entorno clínico</div>
+                        <div className="text-xs text-slate-300">Box de emergencias 01 <span className="text-slate-500">(Reutilizado)</span></div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded bg-slate-900 border border-slate-700 flex items-center justify-center text-xs text-blue-400 font-bold">Vox</div>
                       <div>
-                        <div className="text-[10px] text-slate-500 uppercase">Voice Profile</div>
-                        <div className="text-xs text-slate-300 font-mono">ES_AR_MALE_65</div>
+                        <div className="text-[10px] text-slate-500 uppercase">Perfil de voz</div>
+                        <div className="text-xs text-slate-300">Español argentino, hombre 65 años</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded bg-slate-900 border border-slate-700 flex items-center justify-center text-xs text-amber-400 font-bold">St</div>
                       <div>
-                        <div className="text-[10px] text-slate-500 uppercase">Initial Visual State</div>
-                        <div className="text-xs text-slate-300 font-mono">MODERATE_PAIN</div>
+                        <div className="text-[10px] text-slate-500 uppercase">Estado visual inicial</div>
+                        <div className="text-xs text-slate-300 font-mono">Dolor moderado</div>
                       </div>
                     </div>
                   </div>

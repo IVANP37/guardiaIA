@@ -38,11 +38,11 @@ export function Sidebar({ currentView, onViewChange, isLightMode, onToggleTheme 
   ];
 
   const teacherNav = [
-    { id: 'case-studio', label: 'Case Studio', icon: PenTool, primary: true, highlight: true },
-    { id: 'analytics', label: 'Analytics & Insights', icon: PieChart },
-    { id: 'knowledge-base', label: 'Protocolos (Knowledge Base)', icon: BookOpen },
-    { id: 'actors', label: 'Virtual Actors', icon: Video },
-    { id: 'environments', label: 'Clinical Environments', icon: Monitor },
+    { id: 'case-studio', label: 'Estudio de casos', icon: PenTool, primary: true, highlight: true },
+    { id: 'analytics', label: 'Análisis e indicadores', icon: PieChart },
+    { id: 'knowledge-base', label: 'Protocolos (base de conocimiento)', icon: BookOpen },
+    { id: 'actors', label: 'Actores virtuales', icon: Video },
+    { id: 'environments', label: 'Entornos clínicos', icon: Monitor },
   ];
 
   const adminNav = [
@@ -69,12 +69,12 @@ export function Sidebar({ currentView, onViewChange, isLightMode, onToggleTheme 
       </div>
       
       <div className="px-6 pb-2">
-        <div className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Tenant</div>
+        <div className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Institución</div>
         <div className="text-sm text-slate-300 font-medium truncate">{mockTenant.name}</div>
         <div className="text-[10px] text-slate-500 flex gap-2 mt-1">
           <span>{mockTenant.country}</span>
           <span>•</span>
-          <span>{mockTenant.locale}</span>
+          <span>Español (Argentina)</span>
         </div>
       </div>
 

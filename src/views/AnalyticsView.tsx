@@ -7,7 +7,7 @@ export function AnalyticsView() {
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
             <PieChart className="w-6 h-6 text-indigo-400" />
-            Analytics & Insights
+            Análisis e indicadores
           </h1>
           <p className="text-sm text-slate-400">Análisis de cohortes y desempeño institucional</p>
         </div>
@@ -82,7 +82,7 @@ export function AnalyticsView() {
           <div className="grid grid-cols-3 gap-6">
             {/* GuardIA Insights */}
             <div className="col-span-1 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">GuardIA Insights</h3>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">Hallazgos de GuardIA</h3>
               <div className="space-y-4">
                 <div className="bg-[#05070A] p-4 rounded-xl border border-slate-800">
                   <p className="text-sm text-slate-300 leading-relaxed">

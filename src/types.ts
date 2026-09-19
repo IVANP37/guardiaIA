@@ -1,4 +1,4 @@
-export type AppState = 'login' | 'dashboard' | 'new-shift' | 'simulator' | 'evaluation' | 'library' | 'case-studio' | 'analytics' | 'knowledge-base' | 'actors' | 'environments' | 'simulations' | 'stats' | 'ranking' | 'history' | 'training' | 'admin-users' | 'admin-settings';
+export type AppState = 'login' | 'dashboard' | 'new-shift' | 'waiting-cases' | 'simulator' | 'evaluation' | 'library' | 'case-studio' | 'analytics' | 'knowledge-base' | 'actors' | 'environments' | 'simulations' | 'stats' | 'ranking' | 'history' | 'training' | 'admin-users' | 'admin-settings';
 
 export interface User {
   id: string;
@@ -75,6 +75,7 @@ export interface Patient {
   actorId?: string;
   companion?: Companion;
   initialState?: ClinicalState;
+  clinicalHistory?: string;
 }
 
 export interface ClinicalCase {
@@ -114,3 +115,81 @@ export interface ResolvedSimulation {
   initialVitalsOverride?: VitalSigns;
   systemPromptModifier: string;
 }
+
+export type ClinicalActionCategory = 
+  | 'EVALUATION' 
+  | 'MONITORING_SUPPORT' 
+  | 'STUDIES' 
+  | 'TREATMENT' 
+  | 'ESCALATION' 
+  | 'DISPOSITION';
+
+export type SafetyGrade = 
+  | 'OPTIMAL' 
+  | 'APPROPRIATE' 
+  | 'LATE' 
+  | 'UNNECESSARY' 
+  | 'INAPPROPRIATE' 
+  | 'POTENTIALLY_UNSAFE';
+
+export type DoseEffect = 'THERAPEUTIC' | 'SUBTHERAPEUTIC' | 'TOXIC';
+
+export interface MedicationDoseOption {
+  id: string;
+  label: string;
+  effect: DoseEffect;
+  safetyGrade?: SafetyGrade;
+  scoreImpact?: number;
+  evaluationFeedback?: string;
+  systemLogMessage?: string;
+}
+
+export interface ClinicalAction {
+  id: string;
+  category: ClinicalActionCategory;
+  label: string;
+  description: string;
+  iconName?: string;
+  executionTimeMs: number; // Simulated duration in ms
+  availableFromPhase?: number;
+  availableUntilPhase?: number;
+  specialty?: string[];
+  trainingLevel?: ('Estudiante' | 'Internado' | 'Residente' | 'Médico')[];
+  effectMessage?: string;
+  patientFeedbackMessage?: string;
+  systemLogMessage?: string;
+  safetyGrade?: SafetyGrade;
+  evaluationCompetency?: string;
+  scoreImpact?: number;
+  evaluationFeedback?: string;
+  doseOptions?: MedicationDoseOption[];
+}
+
+export interface ClinicalActionEvent {
+  id: string;
+  actionId: string;
+  label: string;
+  category: ClinicalActionCategory;
+  executedAtSeconds: number;
+  executedAtFormatted: string; // e.g. "04:12"
+  clinicalPhase: number;
+  vitalSnapshot: VitalSigns;
+  status: 'PENDING' | 'COMPLETED';
+  completedAtSeconds?: number;
+  safetyGrade?: SafetyGrade;
+  evaluationCompetency?: string;
+  scoreImpact?: number;
+  evaluationFeedback?: string;
+  systemLog?: string;
+  selectedDoseId?: string;
+  selectedDoseLabel?: string;
+  doseEffect?: DoseEffect;
+}
+
+export interface DebriefFeedback {
+  strengths: string;
+  improvements: string;
+  criticalMoment: string;
+  recommendation: string;
+}
+

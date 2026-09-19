@@ -7,7 +7,7 @@ export function KnowledgeBaseView() {
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
             <BookOpen className="w-6 h-6 text-indigo-400" />
-            Protocolos & Knowledge Base
+            Protocolos y base de conocimiento
           </h1>
           <p className="text-sm text-slate-400">Gestiona los protocolos institucionales utilizados por la IA</p>
         </div>
