@@ -1,0 +1,21 @@
+# Uso en el VPS cuando Ollama ya corre en OTRO compose:
+#   docker compose -f docker-compose.yml -f docker-compose.vps.yml up -d --build
+#
+# En .env:
+#   OLLAMA_NETWORK=nombre_de_la_red_del_otro_proyecto
+#   OLLAMA_UPSTREAM=http://nombre_del_contenedor_ollama:11434
+
+services:
+  guardia:
+    environment:
+      OLLAMA_UPSTREAM: ${OLLAMA_UPSTREAM:-http://ollama:11434}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - default
+      - ollama_shared
+
+networks:
+  ollama_shared:
+    external: true
+    name: ${OLLAMA_NETWORK}
